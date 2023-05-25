@@ -25,10 +25,10 @@ module.exports = {
           { new: true }
         );
       })
-      .then((user) =>
-        !user
+      .then((thought) =>
+        !thought
           ? res.status(404).json({
-              message: "No uer with that ID",
+              message: "No user with that ID",
             })
           : res.json("Thought created!")
       )

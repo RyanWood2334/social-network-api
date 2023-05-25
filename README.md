@@ -1,4 +1,4 @@
-# social-network-api
+# Social Network API
 
 ![Badge](https://img.shields.io/static/v1?label=License&message=MIT&color=<GREEN>)
 
