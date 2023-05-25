@@ -96,7 +96,7 @@ module.exports = {
           ? res.status(404).json({ message: "No reaction with this id!" })
           : Thought.findOneAndUpdate(
               { reactions: req.params.reactionId },
-              { $pull: { reactions: req.params.reactionId } },
+              { $pull: { reactionId: req.params.reactionId } },
               { new: true }
             )
       )
