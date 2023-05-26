@@ -65,23 +65,16 @@ module.exports = {
       .catch((err) => res.status(500).json(err));
   },
 
-  deleteFriend(req, res) {
-    User.findOneAndRemove({ _id: req.params.userId })
+  removeFriend(req, res) {
+    User.findOneAndUpdate(
+      { _id: req.params.userId },
+      { $pull: { friends: { friendId: req.params.friendId } } },
+      { runValidators: true, new: true }
+    )
       .then((user) =>
         !user
-          ? res.status(404).json({ message: "No reaction with this id!" })
-          : User.findOneAndUpdate(
-              { friends: req.params.userId },
-              { $pull: { userId: req.params.userId } },
-              { new: true }
-            )
-      )
-      .then((user) =>
-        !user
-          ? res.status(404).json({
-              message: "Reaction created but no user with this id!",
-            })
-          : res.json({ message: "Reaction successfully deleted!" })
+          ? res.status(404).json({ message: "No user with this id!" })
+          : res.json(user)
       )
       .catch((err) => res.status(500).json(err));
   },
