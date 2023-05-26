@@ -46,6 +46,7 @@ This database could be used for any up and coming social network site.
 ## Mock-up
 
 Here's a video showing functionality:
+https://drive.google.com/file/d/1RCiwgwRlWm_udVoXELQWfGwIw4b1uTMx/view
 
 ## License
 
